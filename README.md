@@ -41,4 +41,3 @@ O sistema busca resolver problemas de **desorganização de horários, falta de 
 Em desenvolvimento contínuo, com foco em testes de usabilidade e integração de novas funcionalidades.
 
 ![Captura de tela_13-3-2026_10344_app flutterflow io](https://github.com/user-attachments/assets/46104826-fbca-44f6-a127-e5074221e998)
-
