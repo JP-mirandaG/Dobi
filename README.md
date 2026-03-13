@@ -19,7 +19,7 @@ O sistema busca resolver problemas de **desorganização de horários, falta de 
 ## 👥 Participantes
 - **João Pedro Miranda** – Líder de Projeto e Desenvolvedor Frontend 
 - **Thomas Bayão** – Banco de dados  
-- **Pedro Henrique Francisco** – Desenvolvedor Backend
+- **Pedro Henrique Francisco** – Desenvolvedor Backend e Design Ass.
 - **Guilherme Rodrigues** - Desenvolvedor Backend Ass. e Designer Geral
 
 ## 🧑‍🏫 Instrutores
