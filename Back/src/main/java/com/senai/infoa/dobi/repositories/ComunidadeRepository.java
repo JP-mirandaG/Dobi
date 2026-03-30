@@ -1,5 +1,10 @@
 package com.senai.infoa.dobi.repositories;
 
-public class ComunidadeRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import com.senai.infoa.dobi.entities.Comunidade;
+
+@Repository
+public interface ComunidadeRepository extends JpaRepository<Comunidade, Integer> {
     
 }

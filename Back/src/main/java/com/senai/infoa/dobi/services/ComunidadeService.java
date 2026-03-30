@@ -9,4 +9,43 @@ public class ComunidadeService {
     
     @Autowired
     private ComunidadeRepository comunidadeRepository;
+
+public Comunidade salvar(Comunidade comunidade){
+        return comunidadeRepository.save(comunidade);
+    }
+
+    public List<Comunidade> listarTodos(){
+        return comunidadeRepository.findAll();
+    }
+
+      public boolean buscar(Integer id) {
+        Comunidade comunidade = comunidadeRepository.findById(id).get();
+        if(comunidade != null){
+           comunidadeRepository.findById(id);
+            return true;
+  
+        }
+
+        return false;
+    }
+
+    public Comunidade atualizar(Comunidade comunidade, Integer id){
+    Comunidade comunidade2 = comunidadeRepository.findById(id).get();
+    if(comunidade2 != null){
+        Comunidade.setId(id);
+        return comunidadeRepository.save(comunidade);
+    }
+    return null;
+}
+
+ public boolean apagar(Integer id) {
+        Comunidade comunidade = comunidadeRepository.findById(id).get();
+        if(comunidade != null){
+            comunidadeRepository.deleteById(id);
+            return true;
+  
+        }
+
+        return false;
+}
 }
