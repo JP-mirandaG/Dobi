@@ -29,7 +29,7 @@ O sistema busca resolver problemas de **desorganização de horários, falta de 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
-- **Linguagens de Programação:** JavaScript 
+- **Linguagens de Programação:** Java
 - **Banco de Dados:** PostgreSQL  
 - **Ferramentas de Versionamento:** Git, GitHub  
 - **Plataformas de Deploy:** Render  
