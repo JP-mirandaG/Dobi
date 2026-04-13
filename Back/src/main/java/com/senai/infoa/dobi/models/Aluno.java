@@ -23,14 +23,17 @@ public class Aluno {
     @Column(name = "data de nascimento")
     private String dataDeNascimento;
 
-    @Column(name = "cpf")
-    private String cpf;
+    @Column(name = "email")
+    private String email;
 
     @Column(name = "telefone")
     private String telefone;
 
     @Column(name = "matricula")
     private String matricula;
+
+    @Column(name = "senha")
+    private String senha;
 
     @ManyToOne
     @JoinColumn(name = "turma_id")
@@ -39,12 +42,12 @@ public class Aluno {
     public Aluno() {
     }
 
-    public Aluno(Integer id, String nome, String dataDeNascimento, String cpf, String telefone, String matricula,
+    public Aluno(Integer id, String nome, String dataDeNascimento, String email, String telefone, String matricula,
             Turma turma) {
         this.id = id;
         this.nome = nome;
         this.dataDeNascimento = dataDeNascimento;
-        this.cpf = cpf;
+        this.email = email;
         this.telefone = telefone;
         this.matricula = matricula;
         this.turma = turma;
@@ -74,12 +77,12 @@ public class Aluno {
         this.dataDeNascimento = dataDeNascimento;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getTelefone() {
@@ -106,6 +109,12 @@ public class Aluno {
         this.turma = turma;
     }
 
-    
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
     
 }

@@ -1,7 +1,11 @@
 package com.senai.infoa.dobi.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.senai.infoa.dobi.models.Instrutor;
 import com.senai.infoa.dobi.repositories.InstrutorRepository;
 
 @Service
@@ -29,10 +33,18 @@ public Instrutor salvar(Instrutor instrutor){
         return false;
     }
 
+    public Instrutor login(String email, String senha){
+        Instrutor instrutor = instrutorRepository.findByInstrutor(email, senha);
+        if(instrutor != null && senha.equals(instrutor.getSenha())){
+            return instrutor;
+        }
+        return null;
+    }
+
     public Instrutor atualizar(Instrutor instrutor, Integer id){
     Instrutor instrutor2 = instrutorRepository.findById(id).get();
     if(instrutor2 != null){
-        Instrutor.setId(id);
+        instrutor.setId(id);
         return instrutorRepository.save(instrutor);
     }
     return null;
@@ -40,7 +52,7 @@ public Instrutor salvar(Instrutor instrutor){
 
  public boolean apagar(Integer id) {
         Instrutor instrutor = instrutorRepository.findById(id).get();
-        if(Instrutor != null){
+        if(instrutor != null){
             instrutorRepository.deleteById(id);
             return true;
   

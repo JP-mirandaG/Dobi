@@ -1,7 +1,11 @@
 package com.senai.infoa.dobi.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.senai.infoa.dobi.models.Turma;
 import com.senai.infoa.dobi.repositories.TurmaRepository;
 
 @Service
@@ -32,7 +36,7 @@ public Turma salvar(Turma turma){
     public Turma atualizar(Turma turma, Integer id){
     Turma turma2 = turmaRepository.findById(id).get();
     if(turma2 != null){
-        Instrutor.setId(id);
+        turma.setId(id);
         return turmaRepository.save(turma);
     }
     return null;

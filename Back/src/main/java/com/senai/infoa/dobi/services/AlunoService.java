@@ -1,8 +1,11 @@
 package com.senai.infoa.dobi.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.senai.infoa.dobi.models.Aluno;
 import com.senai.infoa.dobi.repositories.AlunoRepository;
 
 @Service
@@ -28,6 +31,14 @@ public Aluno salvar(Aluno aluno){
         }
 
         return false;
+    }
+
+     public Aluno login(String email, String senha){
+        Aluno aluno = alunoRepository.findByAluno(email, senha);
+        if(aluno != null && senha.equals(aluno.getSenha())){
+            return aluno;
+        }
+        return null;
     }
 
     public Aluno atualizar(Aluno aluno, Integer id){

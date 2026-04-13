@@ -1,7 +1,11 @@
 package com.senai.infoa.dobi.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.senai.infoa.dobi.models.Comunidade;
 import com.senai.infoa.dobi.repositories.ComunidadeRepository;
 
 @Service
@@ -32,7 +36,7 @@ public Comunidade salvar(Comunidade comunidade){
     public Comunidade atualizar(Comunidade comunidade, Integer id){
     Comunidade comunidade2 = comunidadeRepository.findById(id).get();
     if(comunidade2 != null){
-        Comunidade.setId(id);
+        comunidade.setId(id);
         return comunidadeRepository.save(comunidade);
     }
     return null;
