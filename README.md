@@ -24,7 +24,7 @@ O sistema busca resolver problemas de **desorganização de horários, falta de 
 
 ## 🧑‍🏫 Instrutores
 - **Débora Souza** 
-- **Felipe Nascimento**
+- **Felippe Nascimento**
 
 ---
 
