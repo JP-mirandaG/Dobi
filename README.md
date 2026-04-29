@@ -36,6 +36,18 @@ O sistema busca resolver problemas de **desorganização de horários, falta de 
 
 ---
 
+## 🖥️ Modelagens
+
+**Modelo Conceitual:**
+<img width="862" height="410" alt="Captura de tela 2026-04-29 092244" src="https://github.com/user-attachments/assets/fafc23d5-4c58-4242-b188-c94943cecd93" />
+
+**Modelo Lógico:**
+<img width="694" height="531" alt="Captura de tela 2026-04-29 092256" src="https://github.com/user-attachments/assets/eed7fd53-cb61-4239-a5ac-698a8c9120a2" />
+
+**Modelo Físico:**
+<img width="1287" height="628" alt="Captura de tela 2026-04-29 084436" src="https://github.com/user-attachments/assets/b00cb8d4-56ad-49b4-96c7-934c29195f5f" />
+
+---
 
 ## 📌 Status do Projeto
 Em desenvolvimento.
