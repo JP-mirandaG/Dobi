@@ -3,6 +3,7 @@ package com.senai.infoa.dobi.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import com.senai.infoa.dobi.models.Aluno;
@@ -14,7 +15,8 @@ public class AlunoService {
     @Autowired
     private AlunoRepository alunoRepository;
 
-public Aluno salvar(Aluno aluno){
+public Aluno salvar(@NonNull Aluno aluno){
+    if(aluno != null) {}
         return alunoRepository.save(aluno);
     }
 
@@ -22,7 +24,7 @@ public Aluno salvar(Aluno aluno){
         return alunoRepository.findAll();
     }
 
-      public boolean buscar(Integer id) {
+      public boolean buscar(@NonNull   Integer id) {
         Aluno aluno = alunoRepository.findById(id).get();
         if(aluno != null){
            alunoRepository.findById(id);
@@ -41,7 +43,7 @@ public Aluno salvar(Aluno aluno){
         return null;
     }
 
-    public Aluno atualizar(Aluno aluno, Integer id){
+    public Aluno atualizar(Aluno aluno, @NonNull Integer id){
     Aluno aluno2 = alunoRepository.findById(id).get();
     if(aluno2 != null){
         aluno.setId(id);
@@ -50,7 +52,7 @@ public Aluno salvar(Aluno aluno){
     return null;
 }
 
- public boolean apagar(Integer id) {
+ public boolean apagar(@NonNull  Integer id) {
         Aluno aluno = alunoRepository.findById(id).get();
         if(aluno != null){
             alunoRepository.deleteById(id);

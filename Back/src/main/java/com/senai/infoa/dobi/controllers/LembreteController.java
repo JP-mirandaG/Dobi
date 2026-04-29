@@ -13,50 +13,49 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.senai.infoa.dobi.models.Atividade;
-import com.senai.infoa.dobi.services.AtividadeService;
+import com.senai.infoa.dobi.models.Lembrete;
+import com.senai.infoa.dobi.services.LembreteService;
 
 @RestController
-@RequestMapping("/atividades")
-public class AtividadeController {
+@RequestMapping("/lembrete")
+public class LembreteController {
     
       @Autowired
-    private AtividadeService atividadeService;
+    private LembreteService lembreteService;
 
      @PostMapping("/cadastrar")
-    public Atividade salvar(@RequestBody @NonNull Atividade atividade) {
-        return atividadeService.salvar(atividade);
+    public Lembrete salvar(@RequestBody @NonNull Lembrete lembrete) {
+        return lembreteService.salvar(lembrete);
     }
 
 
      @PutMapping("/atualizar/{id}")
-    public Atividade atualizar(@PathVariable @NonNull Integer id, @RequestBody Atividade atividade) {
-        return atividadeService.atualizar(atividade, id);
+    public Lembrete atualizar(@PathVariable @NonNull Integer id, @RequestBody Lembrete lembrete) {
+        return lembreteService.atualizar(lembrete, id);
         
     }
 
     @GetMapping("/listar")
-    public List<Atividade> listarTodos() {
-        return atividadeService.listarTodos();
+    public List<Lembrete> listarTodos() {
+        return lembreteService.listarTodos();
     }
 
      @GetMapping("/buscar/{id}")
     public String buscar(@PathVariable @NonNull Integer id) {
-        boolean buscou = atividadeService.buscar(id);
+        boolean buscou = lembreteService.buscar(id);
         if (buscou) {
-            String texto = "Atividade " + id + " encontrada com sucesso";
+            String texto = "Turma " + id + " encontrada com sucesso";
             return texto;
         }
-        return "Falha ao buscar a atividade";
+        return "Falha ao buscar a turma";
     }
 
     @DeleteMapping("/delete/{id}")
     public String apagar(@PathVariable @NonNull Integer id) {
-        boolean deletou = atividadeService.apagar(id);
+        boolean deletou = lembreteService.apagar(id);
         if (deletou) {
-            return "Atividade removida com sucesso";
+            return "Turma removida com sucesso";
         }
-        return "Falha ao remover a atividade";
+        return "Falha ao remover a turma";
     }
 }
-

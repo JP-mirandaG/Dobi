@@ -15,25 +15,25 @@ public class Atividade {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "titulo")
+    @Column(name = "titulo", nullable = false)
     private String titulo;
 
-    @Column(name = "descricao")
+    @Column(name = "descricao", nullable = false)
     private String descricao;
 
-    @Column(name = "data_proposta")
+    @Column(name = "data_proposta", nullable = false)
     private String data_proposta;
 
-    @Column(name = "data_entrega")
+    @Column(name = "data_entrega", nullable = false)
     private String data_entrega;
 
-    @Column(name = "nota")
+    @Column(name = "nota", nullable = false)
     private Double nota;
 
-    @Column(name = "status")
+    @Column(name = "status", nullable = false)
     private Boolean status;
 
     @ManyToOne

@@ -3,6 +3,7 @@ package com.senai.infoa.dobi.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,13 +24,13 @@ public class ComunidadeController {
     private ComunidadeService comunidadeService;
 
      @PostMapping("/cadastrar")
-    public Comunidade salvar(@RequestBody Comunidade comunidade) {
+    public Comunidade salvar(@RequestBody @NonNull Comunidade comunidade) {
         return comunidadeService.salvar(comunidade);
     }
 
 
      @PutMapping("/atualizar/{id}")
-    public Comunidade atualizar(@PathVariable Integer id, @RequestBody Comunidade comunidade) {
+    public Comunidade atualizar(@PathVariable @NonNull Integer id, @RequestBody Comunidade comunidade) {
         return comunidadeService.atualizar(comunidade, id);
         
     }
@@ -40,7 +41,7 @@ public class ComunidadeController {
     }
 
      @GetMapping("/buscar/{id}")
-    public String buscar(@PathVariable Integer id) {
+    public String buscar(@PathVariable @NonNull Integer id) {
         boolean buscou = comunidadeService.buscar(id);
         if (buscou) {
             String texto = "Comunidade " + id + " encontrada com sucesso";
@@ -50,7 +51,7 @@ public class ComunidadeController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public String apagar(@PathVariable Integer id) {
+    public String apagar(@PathVariable @NonNull Integer id) {
         boolean deletou = comunidadeService.apagar(id);
         if (deletou) {
             return "Comunidade removida com sucesso";

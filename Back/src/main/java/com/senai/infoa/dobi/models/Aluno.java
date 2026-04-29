@@ -1,4 +1,5 @@
 package com.senai.infoa.dobi.models;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,25 +15,25 @@ public class Aluno {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) 
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "nome")
+    @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column(name = "data de nascimento")
+    @Column(name = "data de nascimento", nullable = false)
     private String dataDeNascimento;
 
-    @Column(name = "email")
+    @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "telefone")
+    @Column(name = "telefone", nullable = false)
     private String telefone;
 
-    @Column(name = "matricula")
+    @Column(name = "matricula", nullable = false)
     private String matricula;
 
-    @Column(name = "senha")
+    @Column(name = "senha", nullable = false)
     private String senha;
 
     @ManyToOne

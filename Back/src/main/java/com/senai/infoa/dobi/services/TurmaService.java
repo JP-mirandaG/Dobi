@@ -3,6 +3,7 @@ package com.senai.infoa.dobi.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import com.senai.infoa.dobi.models.Turma;
@@ -14,7 +15,7 @@ public class TurmaService {
     @Autowired
     private TurmaRepository turmaRepository;
 
-public Turma salvar(Turma turma){
+public Turma salvar(@NonNull Turma turma){
         return turmaRepository.save(turma);
     }
 
@@ -22,7 +23,7 @@ public Turma salvar(Turma turma){
         return turmaRepository.findAll();
     }
 
-      public boolean buscar(Integer id) {
+      public boolean buscar(@NonNull   Integer id) {
         Turma turma = turmaRepository.findById(id).get();
         if(turma != null){
            turmaRepository.findById(id);
@@ -33,7 +34,7 @@ public Turma salvar(Turma turma){
         return false;
     }
 
-    public Turma atualizar(Turma turma, Integer id){
+    public Turma atualizar(Turma turma, @NonNull Integer id){
     Turma turma2 = turmaRepository.findById(id).get();
     if(turma2 != null){
         turma.setId(id);
@@ -42,7 +43,7 @@ public Turma salvar(Turma turma){
     return null;
 }
 
- public boolean apagar(Integer id) {
+ public boolean apagar(@NonNull  Integer id) {
         Turma turma = turmaRepository.findById(id).get();
         if(turma != null){
             turmaRepository.deleteById(id);

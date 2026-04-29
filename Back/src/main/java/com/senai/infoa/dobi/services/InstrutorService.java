@@ -3,6 +3,7 @@ package com.senai.infoa.dobi.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import com.senai.infoa.dobi.models.Instrutor;
@@ -14,7 +15,7 @@ public class InstrutorService {
     @Autowired
     private InstrutorRepository instrutorRepository;
 
-public Instrutor salvar(Instrutor instrutor){
+public Instrutor salvar(@NonNull Instrutor instrutor){
         return instrutorRepository.save(instrutor);
     }
 
@@ -22,7 +23,7 @@ public Instrutor salvar(Instrutor instrutor){
         return instrutorRepository.findAll();
     }
 
-      public boolean buscar(Integer id) {
+      public boolean buscar(@NonNull   Integer id) {
         Instrutor instrutor = instrutorRepository.findById(id).get();
         if(instrutor != null){
            instrutorRepository.findById(id);
@@ -41,7 +42,7 @@ public Instrutor salvar(Instrutor instrutor){
         return null;
     }
 
-    public Instrutor atualizar(Instrutor instrutor, Integer id){
+    public Instrutor atualizar(Instrutor instrutor, @NonNull Integer id){
     Instrutor instrutor2 = instrutorRepository.findById(id).get();
     if(instrutor2 != null){
         instrutor.setId(id);
@@ -50,7 +51,7 @@ public Instrutor salvar(Instrutor instrutor){
     return null;
 }
 
- public boolean apagar(Integer id) {
+ public boolean apagar(@NonNull  Integer id) {
         Instrutor instrutor = instrutorRepository.findById(id).get();
         if(instrutor != null){
             instrutorRepository.deleteById(id);

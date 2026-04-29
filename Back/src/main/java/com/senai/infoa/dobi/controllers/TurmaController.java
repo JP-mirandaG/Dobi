@@ -3,6 +3,7 @@ package com.senai.infoa.dobi.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,13 +24,13 @@ public class TurmaController {
     private TurmaService turmaService;
 
      @PostMapping("/cadastrar")
-    public Turma salvar(@RequestBody Turma turma) {
+    public Turma salvar(@RequestBody @NonNull Turma turma) {
         return turmaService.salvar(turma);
     }
 
 
      @PutMapping("/atualizar/{id}")
-    public Turma atualizar(@PathVariable Integer id, @RequestBody Turma turma) {
+    public Turma atualizar(@PathVariable @NonNull Integer id, @RequestBody Turma turma) {
         return turmaService.atualizar(turma, id);
         
     }
@@ -40,7 +41,7 @@ public class TurmaController {
     }
 
      @GetMapping("/buscar/{id}")
-    public String buscar(@PathVariable Integer id) {
+    public String buscar(@PathVariable @NonNull Integer id) {
         boolean buscou = turmaService.buscar(id);
         if (buscou) {
             String texto = "Turma " + id + " encontrada com sucesso";
@@ -50,7 +51,7 @@ public class TurmaController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public String apagar(@PathVariable Integer id) {
+    public String apagar(@PathVariable @NonNull Integer id) {
         boolean deletou = turmaService.apagar(id);
         if (deletou) {
             return "Turma removida com sucesso";

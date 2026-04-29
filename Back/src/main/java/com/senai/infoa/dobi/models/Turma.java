@@ -16,13 +16,13 @@ public class Turma {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "nome")
+    @Column(name = "nome", nullable = false)
     private String nome;   
 
-    @Column(name = "numero")
+    @Column(name = "numero", nullable = false)
     private Integer numero;
 
     @ManyToOne

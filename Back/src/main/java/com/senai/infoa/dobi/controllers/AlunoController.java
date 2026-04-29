@@ -3,6 +3,7 @@ package com.senai.infoa.dobi.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,7 +25,7 @@ public class AlunoController {
     private AlunoService alunoService;
 
      @PostMapping("/cadastrar")
-    public Aluno salvar(@RequestBody Aluno aluno) {
+    public Aluno salvar(@RequestBody @NonNull Aluno aluno) {
         return alunoService.salvar(aluno);
     }
 
@@ -34,7 +35,7 @@ public class AlunoController {
     }
 
      @PutMapping("/atualizar/{id}")
-    public Aluno atualizar(@PathVariable Integer id, @RequestBody Aluno aluno) {
+    public Aluno atualizar(@PathVariable @NonNull Integer id, @RequestBody Aluno aluno) {
         return alunoService.atualizar(aluno, id);
         
     }
@@ -45,7 +46,7 @@ public class AlunoController {
     }
 
      @GetMapping("/buscar/{id}")
-    public String buscar(@PathVariable Integer id) {
+    public String buscar(@PathVariable @NonNull Integer id) {
         boolean buscou = alunoService.buscar(id);
         if (buscou) {
             String texto = "Aluno " + id + "encontrado com sucesso";
@@ -55,7 +56,7 @@ public class AlunoController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public String apagar(@PathVariable Integer id) {
+    public String apagar(@PathVariable @NonNull Integer id) {
         boolean deletou = alunoService.apagar(id);
         if (deletou) {
             return "Aluno removido com sucesso";

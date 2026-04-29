@@ -3,6 +3,7 @@ package com.senai.infoa.dobi.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,7 +25,7 @@ public class InstrutorController {
     private InstrutorService instrutorService;
 
      @PostMapping("/cadastrar")
-    public Instrutor salvar(@RequestBody Instrutor instrutor) {
+    public Instrutor salvar(@RequestBody @NonNull Instrutor instrutor) {
         return instrutorService.salvar(instrutor);
     }
 
@@ -34,7 +35,7 @@ public class InstrutorController {
     }
 
      @PutMapping("/atualizar/{id}")
-    public Instrutor atualizar(@PathVariable Integer id, @RequestBody Instrutor instrutor) {
+    public Instrutor atualizar(@PathVariable @NonNull Integer id, @RequestBody Instrutor instrutor) {
         return instrutorService.atualizar(instrutor, id);
         
     }
@@ -45,7 +46,7 @@ public class InstrutorController {
     }
 
      @GetMapping("/buscar/{id}")
-    public String buscar(@PathVariable Integer id) {
+    public String buscar(@PathVariable @NonNull Integer id) {
         boolean buscou = instrutorService.buscar(id);
         if (buscou) {
             String texto = "Instrutor " + id + " encontrado com sucesso";
@@ -55,7 +56,7 @@ public class InstrutorController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public String apagar(@PathVariable Integer id) {
+    public String apagar(@PathVariable @NonNull Integer id) {
         boolean deletou = instrutorService.apagar(id);
         if (deletou) {
             return "Instrutor removido com sucesso";

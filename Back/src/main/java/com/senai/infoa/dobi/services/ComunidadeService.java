@@ -3,6 +3,7 @@ package com.senai.infoa.dobi.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
 import com.senai.infoa.dobi.models.Comunidade;
@@ -14,7 +15,7 @@ public class ComunidadeService {
     @Autowired
     private ComunidadeRepository comunidadeRepository;
 
-public Comunidade salvar(Comunidade comunidade){
+public Comunidade salvar(@NonNull Comunidade comunidade){
         return comunidadeRepository.save(comunidade);
     }
 
@@ -22,7 +23,7 @@ public Comunidade salvar(Comunidade comunidade){
         return comunidadeRepository.findAll();
     }
 
-      public boolean buscar(Integer id) {
+      public boolean buscar(@NonNull   Integer id) {
         Comunidade comunidade = comunidadeRepository.findById(id).get();
         if(comunidade != null){
            comunidadeRepository.findById(id);
@@ -33,7 +34,7 @@ public Comunidade salvar(Comunidade comunidade){
         return false;
     }
 
-    public Comunidade atualizar(Comunidade comunidade, Integer id){
+    public Comunidade atualizar(Comunidade comunidade, @NonNull Integer id){
     Comunidade comunidade2 = comunidadeRepository.findById(id).get();
     if(comunidade2 != null){
         comunidade.setId(id);
@@ -42,7 +43,7 @@ public Comunidade salvar(Comunidade comunidade){
     return null;
 }
 
- public boolean apagar(Integer id) {
+ public boolean apagar(@NonNull  Integer id) {
         Comunidade comunidade = comunidadeRepository.findById(id).get();
         if(comunidade != null){
             comunidadeRepository.deleteById(id);

@@ -13,13 +13,13 @@ public class Comunidade {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "nome")
+    @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Column(name = "instituicao")
+    @Column(name = "instituicao", nullable = false)
     private String instituicao;
 
     public Comunidade() {
