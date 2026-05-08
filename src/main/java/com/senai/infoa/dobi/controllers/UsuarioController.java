@@ -14,53 +14,53 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.senai.infoa.dobi.models.Aluno;
-import com.senai.infoa.dobi.services.AlunoService;
+import com.senai.infoa.dobi.models.Usuario;
+import com.senai.infoa.dobi.services.UsuarioService;
 
 @RestController
-@RequestMapping("/alunos")
-public class AlunoController {
+@RequestMapping("/usuarios")
+public class UsuarioController {
     
     @Autowired
-    private AlunoService alunoService;
+    private UsuarioService usuarioService;
 
      @PostMapping("/cadastrar")
-    public Aluno salvar(@RequestBody @NonNull Aluno aluno) {
-        return alunoService.salvar(aluno);
+    public Usuario salvar(@RequestBody @NonNull Usuario usuario) {
+        return usuarioService.salvar(usuario);
     }
 
    @PostMapping("/login")
-    public Aluno login(@RequestParam String cpf, @RequestParam String matricula) {
-        return alunoService.login(cpf, matricula);
+    public Usuario login(@RequestParam String cpf, @RequestParam String matricula) {
+        return usuarioService.login(cpf, matricula);
     }
 
      @PutMapping("/atualizar/{id}")
-    public Aluno atualizar(@PathVariable @NonNull Integer id, @RequestBody Aluno aluno) {
-        return alunoService.atualizar(aluno, id);
+    public Usuario atualizar(@PathVariable @NonNull Integer id, @RequestBody Usuario usuario) {
+        return usuarioService.atualizar(usuario, id);
         
     }
 
     @GetMapping("/listar")
-    public List<Aluno> listarTodos() {
-        return alunoService.listarTodos();
+    public List<Usuario> listarTodos() {
+        return usuarioService.listarTodos();
     }
 
      @GetMapping("/buscar/{id}")
     public String buscar(@PathVariable @NonNull Integer id) {
-        boolean buscou = alunoService.buscar(id);
+        boolean buscou = usuarioService.buscar(id);
         if (buscou) {
-            String texto = "Aluno " + id + "encontrado com sucesso";
+            String texto = "Usuario " + id + "encontrado com sucesso";
             return texto;
         }
-        return "Falha ao buscar o admin";
+        return "Falha ao buscar o usuario";
     }
 
     @DeleteMapping("/delete/{id}")
     public String apagar(@PathVariable @NonNull Integer id) {
-        boolean deletou = alunoService.apagar(id);
+        boolean deletou = usuarioService.apagar(id);
         if (deletou) {
-            return "Aluno removido com sucesso";
+            return "Usuario removido com sucesso";
         }
-        return "Falha ao remover o aluno";
+        return "Falha ao remover o usuario";
     }
 }
