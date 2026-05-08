@@ -24,15 +24,13 @@ O sistema busca resolver problemas de **desorganização de horários, falta de 
 
 ## 🧑‍🏫 Instrutores
 - **Débora Souza** 
-- **Felippe Nascimento**
+- **Felipe Nascimento**
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 - **Linguagens de Programação:** JavaScript 
-- **Banco de Dados:** PostgreSQL e Supabase
-- **BackEnd:** VsCode
-- **FrontEnd:** Flutterflow e Figma 
+- **Banco de Dados:** PostgreSQL  
 - **Ferramentas de Versionamento:** Git, GitHub  
 - **Plataformas de Deploy:** Render  
 
