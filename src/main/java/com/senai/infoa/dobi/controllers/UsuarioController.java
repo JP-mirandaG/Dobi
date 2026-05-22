@@ -30,8 +30,8 @@ public class UsuarioController {
     }
 
    @PostMapping("/login")
-    public Usuario login(@RequestParam String cpf, @RequestParam String matricula) {
-        return usuarioService.login(cpf, matricula);
+    public Usuario login(@RequestParam String email, @RequestParam String senha) {
+        return usuarioService.login(email, senha);
     }
 
      @PutMapping("/atualizar/{id}")

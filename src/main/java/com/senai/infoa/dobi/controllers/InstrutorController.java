@@ -30,8 +30,8 @@ public class InstrutorController {
     }
 
    @PostMapping("/login")
-    public Instrutor login(@RequestParam String cpf, @RequestParam String matricula) {
-        return instrutorService.login(cpf, matricula);
+    public Instrutor login(@RequestParam String email, @RequestParam String senha) {
+        return instrutorService.login(email, senha);
     }
 
      @PutMapping("/atualizar/{id}")
