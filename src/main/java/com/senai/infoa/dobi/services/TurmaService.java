@@ -23,17 +23,6 @@ public Turma salvar(@NonNull Turma turma){
         return turmaRepository.findAll();
     }
 
-      public boolean buscar(@NonNull   Integer id) {
-        Turma turma = turmaRepository.findById(id).get();
-        if(turma != null){
-           turmaRepository.findById(id);
-            return true;
-  
-        }
-
-        return false;
-    }
-
     public Turma atualizar(Turma turma, @NonNull Integer id){
     Turma turma2 = turmaRepository.findById(id).get();
     if(turma2 != null){

@@ -23,17 +23,6 @@ public Comunidade salvar(@NonNull Comunidade comunidade){
         return comunidadeRepository.findAll();
     }
 
-      public boolean buscar(@NonNull   Integer id) {
-        Comunidade comunidade = comunidadeRepository.findById(id).get();
-        if(comunidade != null){
-           comunidadeRepository.findById(id);
-            return true;
-  
-        }
-
-        return false;
-    }
-
     public Comunidade atualizar(Comunidade comunidade, @NonNull Integer id){
     Comunidade comunidade2 = comunidadeRepository.findById(id).get();
     if(comunidade2 != null){

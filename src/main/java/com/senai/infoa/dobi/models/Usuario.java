@@ -1,12 +1,15 @@
 package com.senai.infoa.dobi.models;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -27,17 +30,27 @@ public class Usuario {
     @Column(name = "senha", nullable = false)
     private String senha;
 
-    @ManyToOne
-    @JoinColumn(name = "turma_id")
-    private Turma turma;
+    @Column(name = "ativo", nullable = false)
+    private Boolean ativo = true;
+
+   @ManyToMany
+    @JoinTable(
+        name = "usuario_turma",
+
+        joinColumns = @JoinColumn(name = "usuario_id"),
+
+        inverseJoinColumns = @JoinColumn(name = "turma_id")
+    )
+    private List<Turma> turma;
 
     public Usuario() {
     }
 
-    public Usuario(Integer id, String nome, String email, Turma turma) {
+    public Usuario(Integer id, String nome, String email, String senha, List<Turma> turma, Boolean status) {
         this.id = id;
         this.nome = nome;
         this.email = email;
+        this.senha = senha;
         this.turma = turma;
     }
 
@@ -65,20 +78,28 @@ public class Usuario {
         this.email = email;
     }
 
-    public Turma getTurma() {
-        return turma;
-    }
-
-    public void setTurma(Turma turma) {
-        this.turma = turma;
-    }
-
     public String getSenha() {
         return senha;
     }
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public List<Turma> getTurma() {
+        return turma;
+    }
+
+    public void setTurma(List<Turma> turma) {
+        this.turma = turma;
+    }
+
+    public Boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
     }
     
 }

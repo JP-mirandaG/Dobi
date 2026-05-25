@@ -1,10 +1,11 @@
 package com.senai.infoa.dobi.controllers;
 
-import java.util.List;
+
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,27 +41,30 @@ public class InstrutorController {
         
     }
 
-    @GetMapping("/listar")
-    public List<Instrutor> listarTodos() {
-        return instrutorService.listarTodos();
-    }
-
      @GetMapping("/buscar/{id}")
-    public String buscar(@PathVariable @NonNull Integer id) {
-        boolean buscou = instrutorService.buscar(id);
-        if (buscou) {
-            String texto = "Instrutor " + id + " encontrado com sucesso";
-            return texto;
-        }
-        return "Falha ao buscar o instrutor";
+public ResponseEntity<?> buscar(@PathVariable @NonNull Integer id) {
+    Instrutor instrutor = instrutorService.buscar(id);
+
+    if (instrutor != null) {
+        var resposta = Map.of(
+            "mensagem", "instrutor " + id + " encontrado com sucesso",
+            "Instrutor", instrutor
+        );
+        return ResponseEntity.ok(resposta);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public String apagar(@PathVariable @NonNull Integer id) {
-        boolean deletou = instrutorService.apagar(id);
-        if (deletou) {
-            return "Instrutor removido com sucesso";
-        }
-        return "Falha ao remover o instrutor";
+    return ResponseEntity.status(404).body("Falha ao buscar o instrutor");
+}
+
+     @PutMapping("/desativar/{email}")
+    public Instrutor desativar(@PathVariable String email){
+
+        return instrutorService.desativar(email);
+    }
+
+    @PutMapping("/ativar/{email}")
+    public Instrutor ativar(@PathVariable String email){
+
+        return instrutorService.ativar(email);
     }
 }

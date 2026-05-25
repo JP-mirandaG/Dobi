@@ -40,16 +40,6 @@ public class TurmaController {
         return turmaService.listarTodos();
     }
 
-     @GetMapping("/buscar/{id}")
-    public String buscar(@PathVariable @NonNull Integer id) {
-        boolean buscou = turmaService.buscar(id);
-        if (buscou) {
-            String texto = "Turma " + id + " encontrada com sucesso";
-            return texto;
-        }
-        return "Falha ao buscar a turma";
-    }
-
     @DeleteMapping("/delete/{id}")
     public String apagar(@PathVariable @NonNull Integer id) {
         boolean deletou = turmaService.apagar(id);

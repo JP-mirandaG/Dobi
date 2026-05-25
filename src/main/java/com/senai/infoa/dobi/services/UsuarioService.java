@@ -1,6 +1,5 @@
 package com.senai.infoa.dobi.services;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
@@ -20,20 +19,9 @@ public Usuario salvar(@NonNull Usuario usuario){
         return usuarioRepository.save(usuario);
     }
 
-    public List<Usuario> listarTodos(){
-        return usuarioRepository.findAll();
-    }
-
-      public boolean buscar(@NonNull   Integer id) {
-        Usuario usuario = usuarioRepository.findById(id).get();
-        if(usuario != null){
-           usuarioRepository.findById(id);
-            return true;
-  
-        }
-
-        return false;
-    }
+     public Usuario buscar(@NonNull Integer id) {
+    return usuarioRepository.findById(id).orElse(null);
+}
 
      public Usuario login(String email, String senha){
         Usuario usuario = usuarioRepository.findByUsuario(email, senha);
@@ -43,23 +31,41 @@ public Usuario salvar(@NonNull Usuario usuario){
         return null;
     }
 
-    public Usuario atualizar(Usuario usuario, @NonNull Integer id){
-    Usuario usuario2 = usuarioRepository.findById(id).get();
+    public Usuario atualizar(Usuario usuario, String email){
+    Usuario usuario2 = usuarioRepository.findByEmail(email);
     if(usuario2 != null){
-        usuario.setId(id);
+        usuario.setNome(usuario.getNome());
+        usuario.setSenha(usuario.getSenha());
         return usuarioRepository.save(usuario);
     }
     return null;
 }
 
- public boolean apagar(@NonNull  Integer id) {
-        Usuario usuario = usuarioRepository.findById(id).get();
+public Usuario desativar(String email){
+
+    Usuario usuario = usuarioRepository.findByEmail(email);
+
+    if(usuario != null){
+
+        usuario.setAtivo(false);
+
+        return usuarioRepository.save(usuario);
+    }
+
+    return null;
+}
+
+public Usuario ativar(String email){
+
+        Usuario usuario = usuarioRepository.findByEmail(email);
+
         if(usuario != null){
-            usuarioRepository.deleteById(id);
-            return true;
-  
+
+            usuario.setAtivo(true);
+
+            return usuarioRepository.save(usuario);
         }
 
-        return false;
-}
+        return null;
+    }
 }

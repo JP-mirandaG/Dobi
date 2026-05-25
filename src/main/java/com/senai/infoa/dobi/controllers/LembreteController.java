@@ -40,16 +40,6 @@ public class LembreteController {
         return lembreteService.listarTodos();
     }
 
-     @GetMapping("/buscar/{id}")
-    public String buscar(@PathVariable @NonNull Integer id) {
-        boolean buscou = lembreteService.buscar(id);
-        if (buscou) {
-            String texto = "Turma " + id + " encontrada com sucesso";
-            return texto;
-        }
-        return "Falha ao buscar a turma";
-    }
-
     @DeleteMapping("/delete/{id}")
     public String apagar(@PathVariable @NonNull Integer id) {
         boolean deletou = lembreteService.apagar(id);

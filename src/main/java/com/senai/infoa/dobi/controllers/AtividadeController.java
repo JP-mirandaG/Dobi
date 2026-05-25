@@ -40,15 +40,6 @@ public class AtividadeController {
         return atividadeService.listarTodos();
     }
 
-     @GetMapping("/buscar/{id}")
-    public String buscar(@PathVariable @NonNull Integer id) {
-        boolean buscou = atividadeService.buscar(id);
-        if (buscou) {
-            String texto = "Atividade " + id + " encontrada com sucesso";
-            return texto;
-        }
-        return "Falha ao buscar a atividade";
-    }
 
     @DeleteMapping("/delete/{id}")
     public String apagar(@PathVariable @NonNull Integer id) {

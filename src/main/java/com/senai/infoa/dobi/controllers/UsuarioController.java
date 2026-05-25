@@ -1,10 +1,11 @@
 package com.senai.infoa.dobi.controllers;
 
-import java.util.List;
+
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,32 +36,35 @@ public class UsuarioController {
     }
 
      @PutMapping("/atualizar/{id}")
-    public Usuario atualizar(@PathVariable @NonNull Integer id, @RequestBody Usuario usuario) {
-        return usuarioService.atualizar(usuario, id);
+    public Usuario atualizar(@PathVariable String nome, @RequestBody Usuario usuario) {
+        return usuarioService.atualizar(usuario, nome);
         
     }
 
-    @GetMapping("/listar")
-    public List<Usuario> listarTodos() {
-        return usuarioService.listarTodos();
+    @GetMapping("/buscar/{id}")
+public ResponseEntity<?> buscar(@PathVariable @NonNull Integer id) {
+    Usuario usuario = usuarioService.buscar(id);
+
+    if (usuario != null) {
+        var resposta = Map.of(
+            "mensagem", "Usuario " + id + " encontrado com sucesso",
+            "usuario", usuario
+        );
+        return ResponseEntity.ok(resposta);
     }
 
-     @GetMapping("/buscar/{id}")
-    public String buscar(@PathVariable @NonNull Integer id) {
-        boolean buscou = usuarioService.buscar(id);
-        if (buscou) {
-            String texto = "Usuario " + id + "encontrado com sucesso";
-            return texto;
-        }
-        return "Falha ao buscar o usuario";
+    return ResponseEntity.status(404).body("Falha ao buscar o usuario");
+}
+
+     @PutMapping("/desativar/{email}")
+    public Usuario desativar(@PathVariable String email){
+
+        return usuarioService.desativar(email);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public String apagar(@PathVariable @NonNull Integer id) {
-        boolean deletou = usuarioService.apagar(id);
-        if (deletou) {
-            return "Usuario removido com sucesso";
-        }
-        return "Falha ao remover o usuario";
+    @PutMapping("/ativar/{email}")
+    public Usuario ativar(@PathVariable String email){
+
+        return usuarioService.ativar(email);
     }
 }

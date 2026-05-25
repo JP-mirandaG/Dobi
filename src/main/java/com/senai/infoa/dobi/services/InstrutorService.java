@@ -1,6 +1,5 @@
 package com.senai.infoa.dobi.services;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
@@ -19,20 +18,9 @@ public Instrutor salvar(@NonNull Instrutor instrutor){
         return instrutorRepository.save(instrutor);
     }
 
-    public List<Instrutor> listarTodos(){
-        return instrutorRepository.findAll();
-    }
-
-      public boolean buscar(@NonNull   Integer id) {
-        Instrutor instrutor = instrutorRepository.findById(id).get();
-        if(instrutor != null){
-           instrutorRepository.findById(id);
-            return true;
-  
-        }
-
-        return false;
-    }
+        public Instrutor buscar(@NonNull Integer id) {
+    return instrutorRepository.findById(id).orElse(null);
+}
 
     public Instrutor login(String email, String senha){
         Instrutor instrutor = instrutorRepository.findByInstrutor(email, senha);
@@ -51,14 +39,31 @@ public Instrutor salvar(@NonNull Instrutor instrutor){
     return null;
 }
 
- public boolean apagar(@NonNull  Integer id) {
-        Instrutor instrutor = instrutorRepository.findById(id).get();
+public Instrutor desativar(String email){
+
+    Instrutor instrutor = instrutorRepository.findByEmail(email);
+
+    if(instrutor != null){
+
+        instrutor.setAtivo(false);
+
+        return instrutorRepository.save(instrutor);
+    }
+
+    return null;
+}
+
+public Instrutor ativar(String email){
+
+        Instrutor instrutor = instrutorRepository.findByEmail(email);
+
         if(instrutor != null){
-            instrutorRepository.deleteById(id);
-            return true;
-  
+
+            instrutor.setAtivo(true);
+
+            return instrutorRepository.save(instrutor);
         }
 
-        return false;
-}
+        return null;
+    }
 }

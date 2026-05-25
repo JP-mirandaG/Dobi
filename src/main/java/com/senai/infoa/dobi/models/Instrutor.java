@@ -30,6 +30,9 @@ public class Instrutor {
     @Column(name = "matricula", nullable = false)
     private String matricula;
 
+    @Column(name = "ativo", nullable = false)
+    private Boolean ativo = true;
+
     @ManyToOne
     @JoinColumn(name = "comunidade_id")
     private Comunidade comunidade;
@@ -37,13 +40,15 @@ public class Instrutor {
     public Instrutor() {
     }
 
-    public Instrutor(Integer id, String nome, String email, String matricula, Comunidade comunidade, String senha) {
+    public Instrutor(Integer id, String nome, String email, String senha, String matricula, Boolean ativo,
+            Comunidade comunidade) {
         this.id = id;
         this.nome = nome;
         this.email = email;
-        this.matricula = matricula;
-        this.comunidade = comunidade;
         this.senha = senha;
+        this.matricula = matricula;
+        this.ativo = ativo;
+        this.comunidade = comunidade;
     }
 
     public Integer getId() {
@@ -86,6 +91,14 @@ public class Instrutor {
         this.matricula = matricula;
     }
 
+    public Boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
+    }
+
     public Comunidade getComunidade() {
         return comunidade;
     }
@@ -93,6 +106,8 @@ public class Instrutor {
     public void setComunidade(Comunidade comunidade) {
         this.comunidade = comunidade;
     }
+
+   
 
     
 }

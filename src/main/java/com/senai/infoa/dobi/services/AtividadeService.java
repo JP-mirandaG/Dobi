@@ -23,16 +23,7 @@ public Atividade salvar(@NonNull Atividade atividade){
         return atividadeRepository.findAll();
     }
 
-      public boolean buscar(@NonNull   Integer id) {
-        Atividade atividade = atividadeRepository.findById(id).get();
-        if(atividade != null){
-           atividadeRepository.findById(id);
-            return true;
-  
-        }
 
-        return false;
-    }
 
     public Atividade atualizar(Atividade atividade, @NonNull Integer id){
     Atividade atividade2 = atividadeRepository.findById(id).get();

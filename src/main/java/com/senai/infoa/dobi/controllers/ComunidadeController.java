@@ -40,15 +40,6 @@ public class ComunidadeController {
         return comunidadeService.listarTodos();
     }
 
-     @GetMapping("/buscar/{id}")
-    public String buscar(@PathVariable @NonNull Integer id) {
-        boolean buscou = comunidadeService.buscar(id);
-        if (buscou) {
-            String texto = "Comunidade " + id + " encontrada com sucesso";
-            return texto;
-        }
-        return "Falha ao buscar a comunidade";
-    }
 
     @DeleteMapping("/delete/{id}")
     public String apagar(@PathVariable @NonNull Integer id) {

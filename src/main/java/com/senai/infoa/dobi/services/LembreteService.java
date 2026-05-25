@@ -23,17 +23,6 @@ public Lembrete salvar(@NonNull Lembrete lembrete){
         return lembreteRepository.findAll();
     }
 
-      public boolean buscar(@NonNull   Integer id) {
-        Lembrete lembrete = lembreteRepository.findById(id).get();
-        if(lembrete != null){
-           lembreteRepository.findById(id);
-            return true;
-  
-        }
-
-        return false;
-    }
-
     public Lembrete atualizar(Lembrete lembrete, @NonNull Integer id){
     Lembrete lembrete2 = lembreteRepository.findById(id).get();
     if(lembrete2 != null){

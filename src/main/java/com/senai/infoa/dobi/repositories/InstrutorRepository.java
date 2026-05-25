@@ -11,4 +11,6 @@ public interface InstrutorRepository extends JpaRepository<Instrutor, Integer> {
 
     @Query(value="select * from instrutor where email = :email and senha = :senha", nativeQuery=true)
     public Instrutor findByInstrutor(String email, String senha);
+
+    Instrutor findByEmail(String email);
 }
