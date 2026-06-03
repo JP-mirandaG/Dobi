@@ -55,17 +55,5 @@ public Usuario desativar(String email){
     return null;
 }
 
-public Usuario ativar(String email){
 
-        Usuario usuario = usuarioRepository.findByEmail(email);
-
-        if(usuario != null){
-
-            usuario.setAtivo(true);
-
-            return usuarioRepository.save(usuario);
-        }
-
-        return null;
-    }
 }

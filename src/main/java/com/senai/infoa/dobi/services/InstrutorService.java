@@ -53,17 +53,5 @@ public Instrutor desativar(String email){
     return null;
 }
 
-public Instrutor ativar(String email){
 
-        Instrutor instrutor = instrutorRepository.findByEmail(email);
-
-        if(instrutor != null){
-
-            instrutor.setAtivo(true);
-
-            return instrutorRepository.save(instrutor);
-        }
-
-        return null;
-    }
 }

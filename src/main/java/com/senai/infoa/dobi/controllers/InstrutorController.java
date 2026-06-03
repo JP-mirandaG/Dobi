@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -56,15 +57,11 @@ public ResponseEntity<?> buscar(@PathVariable @NonNull Integer id) {
     return ResponseEntity.status(404).body("Falha ao buscar o instrutor");
 }
 
-     @PutMapping("/desativar/{email}")
+    @DeleteMapping("/desativar/{email}")
     public Instrutor desativar(@PathVariable String email){
 
         return instrutorService.desativar(email);
     }
 
-    @PutMapping("/ativar/{email}")
-    public Instrutor ativar(@PathVariable String email){
-
-        return instrutorService.ativar(email);
-    }
+   
 }
