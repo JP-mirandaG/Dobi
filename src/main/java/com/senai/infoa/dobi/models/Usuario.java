@@ -4,6 +4,8 @@ import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -11,6 +13,13 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+
+
+enum TipoConta { 
+    PESSOAL,
+    ACADEMICO,
+    EMPRESARIAL
+}
 
 @Entity
 @Table(name = "usuario")
@@ -29,6 +38,10 @@ public class Usuario {
 
     @Column(name = "senha", nullable = false)
     private String senha;
+
+   @Enumerated(EnumType.STRING)
+    @Column(name = "tipo", nullable = false)
+    private TipoConta tipo;
 
     @Column(name = "ativo", nullable = false)
     private Boolean ativo = true;
