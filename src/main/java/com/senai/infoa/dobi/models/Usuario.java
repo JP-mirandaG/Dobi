@@ -59,11 +59,12 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(Integer id, String nome, String email, String senha, List<Turma> turma, Boolean status) {
+    public Usuario(String email, Integer id, String nome, String senha, TipoConta tipo, List<Turma> turma) {
+        this.email = email;
         this.id = id;
         this.nome = nome;
-        this.email = email;
         this.senha = senha;
+        this.tipo = tipo;
         this.turma = turma;
     }
 
@@ -99,12 +100,12 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public List<Turma> getTurma() {
-        return turma;
+    public TipoConta getTipo() {
+        return tipo;
     }
 
-    public void setTurma(List<Turma> turma) {
-        this.turma = turma;
+    public void setTipo(TipoConta tipo) {
+        this.tipo = tipo;
     }
 
     public Boolean getAtivo() {
@@ -114,5 +115,13 @@ public class Usuario {
     public void setAtivo(Boolean ativo) {
         this.ativo = ativo;
     }
-    
+
+    public List<Turma> getTurma() {
+        return turma;
+    }
+
+    public void setTurma(List<Turma> turma) {
+        this.turma = turma;
+    }
+
 }
