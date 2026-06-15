@@ -2,6 +2,8 @@ package com.senai.infoa.dobi.models;
 
 import java.util.List;
 
+import com.senai.infoa.dobi.enums.TipoConta;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -13,13 +15,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
-
-
-enum TipoConta { 
-    PESSOAL,
-    ACADEMICO,
-    INSTITUCIONAL
-}
 
 @Entity
 @Table(name = "usuario")

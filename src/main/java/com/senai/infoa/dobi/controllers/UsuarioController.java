@@ -32,8 +32,8 @@ public class UsuarioController {
     }
 
    @PostMapping("/login")
-    public Usuario login(@RequestParam String email, @RequestParam String senha) {
-        return usuarioService.login(email, senha);
+    public Usuario login(@RequestParam String email, @RequestParam String senha, @RequestParam String tipo) {
+        return usuarioService.login(email, senha, tipo);
     }
 
      @PutMapping("/atualizar/{id}")
@@ -43,7 +43,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/buscar/{id}")
-public ResponseEntity<?> buscar(@PathVariable @NonNull Integer id) {
+    public ResponseEntity<?> buscar(@PathVariable @NonNull Integer id) {
     Usuario usuario = usuarioService.buscar(id);
 
     if (usuario != null) {

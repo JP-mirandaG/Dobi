@@ -9,8 +9,8 @@ import com.senai.infoa.dobi.models.Usuario;
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     
-    @Query(value="select * from usuario where email = :email and senha = :senha", nativeQuery=true)
-    public Usuario findByUsuario(String email, String senha);
+    @Query(value="select * from usuario where email = :email and senha = :senha and tipo = :tipo", nativeQuery=true)
+    public Usuario findByUsuario(String email, String senha, String tipo);
 
     Usuario findByEmail(String email);
 }
