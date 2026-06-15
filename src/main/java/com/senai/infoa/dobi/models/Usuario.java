@@ -18,7 +18,7 @@ import jakarta.persistence.Table;
 enum TipoConta { 
     PESSOAL,
     ACADEMICO,
-    EMPRESARIAL
+    INSTITUCIONAL
 }
 
 @Entity
