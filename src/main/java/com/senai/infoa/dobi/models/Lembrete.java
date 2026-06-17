@@ -19,7 +19,7 @@ public class Lembrete {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id", nullable = false)
+    @Column(name="lembrete_id", nullable = false)
     private Integer id;
 
     @Column(name="titulo", nullable = false)
