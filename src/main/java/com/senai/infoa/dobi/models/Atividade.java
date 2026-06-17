@@ -15,7 +15,7 @@ public class Atividade {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "atividade_id", nullable = false)
     private Integer id;
 
     @Column(name = "titulo", nullable = false)
