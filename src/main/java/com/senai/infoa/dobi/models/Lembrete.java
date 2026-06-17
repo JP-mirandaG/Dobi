@@ -35,19 +35,19 @@ public class Lembrete {
     private LocalDate dataRetirada;
 
     @ManyToOne
-    @JoinColumn(name = "aluno_id")
-    private Usuario aluno;
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 
     public Lembrete() {}
 
     public Lembrete(Integer id, String titulo, String descricao, LocalDate dataPostagem, LocalDate dataRetirada,
-            Usuario aluno) {
+            Usuario usuario) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
         this.dataPostagem = dataPostagem;
         this.dataRetirada = dataRetirada;
-        this.aluno = aluno;
+        this.usuario = usuario;
     }
 
     public Integer getId() {
@@ -90,12 +90,12 @@ public class Lembrete {
         this.dataRetirada = dataRetirada;
     }
 
-    public Usuario getAluno() {
-        return aluno;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setAluno(Usuario aluno) {
-        this.aluno = aluno;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     
