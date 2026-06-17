@@ -16,7 +16,7 @@ public class Turma {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "turma_id", nullable = false)
     private Integer id;
 
     @Column(name = "nome", nullable = false)
@@ -26,7 +26,7 @@ public class Turma {
     private Integer numero;
 
     @ManyToOne
-    @JoinColumn(name = "Comunidade_id")
+    @JoinColumn(name = "comunidade_id")
     private Comunidade comunidade;
 
     public Turma() {
