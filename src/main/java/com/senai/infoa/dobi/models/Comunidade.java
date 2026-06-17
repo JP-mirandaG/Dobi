@@ -13,7 +13,7 @@ public class Comunidade {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "comunidade_id", nullable = false)
     private Integer id;
 
     @Column(name = "nome", nullable = false)
