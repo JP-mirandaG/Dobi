@@ -27,10 +27,10 @@ public class Atividade {
     private String descricao;
 
     @Column(name = "data_proposta", nullable = false)
-    private LocalDate data_proposta;
+    private LocalDate dataProposta;
 
     @Column(name = "data_entrega", nullable = false)
-    private LocalDate data_entrega;
+    private LocalDate dataEntrega;
 
     @Column(name = "nota", nullable = false)
     private Double nota;
@@ -45,13 +45,13 @@ public class Atividade {
     public Atividade() {
     }
 
-    public Atividade(Integer id, String titulo, String descricao, LocalDate data_proposta, LocalDate data_entrega,
+    public Atividade(Integer id, String titulo, String descricao, LocalDate dataProposta, LocalDate dataEntrega,
             Double nota, Boolean status, Turma turma) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
-        this.data_proposta = data_proposta;
-        this.data_entrega = data_entrega;
+        this.dataProposta = dataProposta;
+        this.dataEntrega = dataEntrega;
         this.nota = nota;
         this.status = status;
         this.turma = turma;
@@ -81,20 +81,20 @@ public class Atividade {
         this.descricao = descricao;
     }
 
-    public LocalDate getData_proposta() {
-        return data_proposta;
+    public LocalDate getDataProposta() {
+        return dataProposta;
     }
 
-    public void setData_proposta(LocalDate data_proposta) {
-        this.data_proposta = data_proposta;
+    public void setDataProposta(LocalDate dataProposta) {
+        this.dataProposta = dataProposta;
     }
 
-    public LocalDate getData_entrega() {
-        return data_entrega;
+    public LocalDate getDataEntrega() {
+        return dataEntrega;
     }
 
-    public void setData_entrega(LocalDate data_entrega) {
-        this.data_entrega = data_entrega;
+    public void setDataEntrega(LocalDate dataEntrega) {
+        this.dataEntrega = dataEntrega;
     }
 
     public Double getNota() {

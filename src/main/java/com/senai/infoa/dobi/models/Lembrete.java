@@ -28,11 +28,8 @@ public class Lembrete {
     @Column(name="descricao", nullable = false)
     private String descricao;
 
-    @Column(name = "data_postagem", nullable = false)
-    private LocalDate dataPostagem;
-
-    @Column(name = "data_retirada", nullable = false)
-    private LocalDate dataRetirada;
+    @Column(name = "data_limite", nullable = false)
+    private LocalDate dataLimite;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
@@ -40,13 +37,12 @@ public class Lembrete {
 
     public Lembrete() {}
 
-    public Lembrete(Integer id, String titulo, String descricao, LocalDate dataPostagem, LocalDate dataRetirada,
+    public Lembrete(Integer id, String titulo, String descricao, LocalDate dataLimite,
             Usuario usuario) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
-        this.dataPostagem = dataPostagem;
-        this.dataRetirada = dataRetirada;
+        this.dataLimite = dataLimite;
         this.usuario = usuario;
     }
 
@@ -74,20 +70,12 @@ public class Lembrete {
         this.descricao = descricao;
     }
 
-    public LocalDate getDataPostagem() {
-        return dataPostagem;
+    public LocalDate getDataLimite() {
+        return dataLimite;
     }
 
-    public void setDataPostagem(LocalDate dataPostagem) {
-        this.dataPostagem = dataPostagem;
-    }
-
-    public LocalDate getDataRetirada() {
-        return dataRetirada;
-    }
-
-    public void setDataRetirada(LocalDate dataRetirada) {
-        this.dataRetirada = dataRetirada;
+    public void setDataLimite(LocalDate dataLimite) {
+        this.dataLimite = dataLimite;
     }
 
     public Usuario getUsuario() {

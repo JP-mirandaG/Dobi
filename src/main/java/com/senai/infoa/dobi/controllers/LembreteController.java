@@ -1,5 +1,6 @@
 package com.senai.infoa.dobi.controllers;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,11 @@ public class LembreteController {
     @GetMapping("/listar")
     public List<Lembrete> listarTodos() {
         return lembreteService.listarTodos();
+    }
+
+    @GetMapping("/buscarPorId/{id}")
+    public List<Lembrete> listarTodosPorDataId(@PathVariable Integer id, @PathVariable LocalDate data) {
+        return lembreteService.listarTodosPorDataId(id, data);
     }
 
     @DeleteMapping("/delete/{id}")

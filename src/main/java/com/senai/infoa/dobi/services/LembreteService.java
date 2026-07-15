@@ -1,5 +1,6 @@
 package com.senai.infoa.dobi.services;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,10 @@ public Lembrete salvar(@NonNull Lembrete lembrete){
 
     public List<Lembrete> listarTodos(){
         return lembreteRepository.findAll();
+    }
+
+    public List<Lembrete> listarTodosPorDataId(Integer id, LocalDate data){
+        return lembreteRepository.listarTodosPorDataId(id, data);
     }
 
     public Lembrete atualizar(Lembrete lembrete, @NonNull Integer id){
