@@ -36,8 +36,7 @@ O sistema busca resolver problemas de **desorganização de horários, falta de 
 
 ---
 ## 📎Link Render
-- https://dobi-2.onrender.com/dobi-2/swagger-ui/index.html
-- https://dobi-76zl.onrender.com
+- https://dobi-76zl.onrender.com/dobi-2/swagger-ui/index.html
 ---
 
 ## 📌 Status do Projeto
