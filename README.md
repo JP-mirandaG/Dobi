@@ -50,12 +50,7 @@ O sistema busca resolver problemas de **desorganização de horários, falta de 
 ---
 
 ## Link Render
-- https://dobi-co.onrender.com/dobi-co/swagger-ui/index.html
-
-## Banco Render
-- Link: postgresql://dobi_co_user:3qX0WkbwHzRrZwkcNdf9fXjAKxkCfCzz@dpg-db7msb67bikc73ben8m0-a.oregon-postgres.render.com/dobi_co
-- Usuário: dobi_co_user
-- Senha: 3qX0WkbwHzRrZwkcNdf9fXjAKxkCfCzz
+- https://dobi-co.onrender.com/swagger-ui/index.html#/
 ---
 
 ## 📌 Status do Projeto
