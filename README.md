@@ -54,4 +54,4 @@ O sistema busca resolver problemas de **desorganização de horários, falta de 
 ---
 
 ## 📌 Status do Projeto
-Em desenvolvimento.
+Desenvolvido.
